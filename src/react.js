@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Funnies from './index';
 
 export default class FunniesComponent extends React.Component {
@@ -40,3 +40,7 @@ export default class FunniesComponent extends React.Component {
 }
 FunniesComponent.defaultProps = {interval: 8000, customMessages: [], options: {}};
 
+// for browser support
+if (typeof window !== 'undefined') {
+  window.FunniesComponent = FunniesComponent;
+}
